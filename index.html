@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="Student.js"></script>
-    <script src="StudentList.js"></script>
-    <script src="view.js"></script>
+    <script src="model/Student.js"></script>
+    <script src="model/StudentList.js"></script>
+    
+    <script src="view/StudentListView.js"></script>
+    <script src="view/StudentInfoView.js"></script>
+    
     <script src="main.js"></script>
     
-    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
     
-    <style>
-      .students_table {
-        border-collapse: collapse;
-        text-align: center;
-      }
-      .students_table td {
-        border: 1px solid black;
-      }
-    </style>
+    <meta charset="utf-8">
   </head>
   
   <body>
-    <div id="students">
-    </div>
+    <div id="students"></div>
+    <div id="student-info"></div>
   </body>
 
 </html>

@@ -1,16 +1,14 @@
 var students = new StudentList([
-  new Student('Alex', 'Hryhoriev', 'male', 'izaya256', '0961572355'),
-  new Student('Vladimir', 'Timofeev', 'male', 'vovanium', '0687412356'),
-  new Student('Ira', 'someSurname', 'female', 'princess_rina88', '0568758123'),
-  new Student('Svetlana', 'Ovcharenko', 'female', 'ami-caty', '0651234583'),
-  new Student('Lena', 'Ryndina', 'female', 'dn100980rev', '0544561235'),
-  new Student('Polina', 'Zhilyaeva', 'female', 'polina_volna', '0462134257')
+  new Student('Alex', 'Hryhoriev', 'male', '20', 'izaya256'),
+  new Student('Vladimir', 'Timofeev', 'male', '20', 'vovanium'),
+  new Student('Ira', 'someSurname', 'female', '20', 'princess_rina88'),
+  new Student('Svetlana', 'Ovcharenko', 'female', '20', 'ami-caty'),
+  new Student('Lena', 'Ryndina', 'female', '20', 'dn100980rev'),
+  new Student('Polina', 'Zhilyaeva', 'female', '20', 'polina_volna')
 ]);
 
-function showStudentList () {
-  var list = createList (students)
-  list.className = 'student_list';
-  document.getElementById('students').appendChild(list);
-}
+var view = new StudentListView(students);
 
-document.addEventListener("DOMContentLoaded", showStudentList);
+document.addEventListener("DOMContentLoaded", function () {
+  view.showTable( document.getElementById('students') );
+}, false);
