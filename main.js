@@ -10,5 +10,14 @@ var students = new StudentList([
 var view = new StudentListView(students);
 
 document.addEventListener("DOMContentLoaded", function () {
-  view.showTable( document.getElementById('students') );
+  var container = document.getElementById('students'),
+      listDiv = container.appendChild( document.createElement('div') ),
+      infoDiv = container.appendChild( document.createElement('div') );
+  view.showTable( listDiv, infoDiv );
 }, false);
+
+function addElement (tag, html, parent) {
+  var elem = document.createElement(tag);
+  elem.innerHTML = html;
+  return parent.appendChild(elem);
+}

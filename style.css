@@ -103,3 +103,7 @@
 .simple-little-table .more-info {
   cursor: pointer;
 }
+
+#students div {
+  float: left;
+}

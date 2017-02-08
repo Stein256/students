@@ -12,13 +12,8 @@ StudentInfoView.prototype.showInfo = function (parentElem) {
   
   for (let name in studentInfo) {
     tr = tBody.appendChild( document.createElement('tr') );
-    cell = document.createElement('th');
-    cell.innerHTML = name;
-    tr.appendChild(cell);
-    
-    cell = document.createElement('td');
-    cell.innerHTML = studentInfo[name];
-    tr.appendChild(cell);
+    addElement('th', name, tr);
+    addElement('td', studentInfo[name], tr);
   }
   
   table.classList.add('simple-little-table')
