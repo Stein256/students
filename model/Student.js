@@ -1,27 +1,32 @@
-function Student (name, surname, gender, age, skype) {
-  this.name = name;
-  this.surname = surname;
-  this.gender = gender;
-  this.age = age;
-  this.skype = skype;
+function Student (name, surname, gender, birthday, skype) {
+  var name = name,
+      surname = surname,
+      gender = gender,
+      birthday = birthday,
+      skype = skype;
+      
+  this.getShortForm = function () {
+    return {
+      fullName: name + ' ' + surname,
+      age: getAge(birthday),
+      gender: gender
+    };
+  };
+  
+  this.getFullForm = function () {
+    return {
+      name: name,
+      surname: surname,
+      age: getAge(birthday),
+      birthday: birthday.toDateString(),
+      gender: gender,
+      skype: skype
+    };
+  };
+  
+  function getAge (birthday) {
+    return new Date(Date.now() - birthday).getFullYear() - 1970;
+  }
   
   return this;
-}
-
-Student.prototype.getShortForm = function () {
-  return {
-    fullName: this.name + ' ' + this.surname,
-    age: this.age,
-    gender: this.gender
-  };
-}
-
-Student.prototype.getFullForm = function () {
-  return {
-    name: this.name,
-    surname: this.surname,
-    age: this.age,
-    gender: this.gender,
-    skype: this.skype
-  };
 }

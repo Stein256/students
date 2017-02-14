@@ -1,23 +1,17 @@
 var students = new StudentList([
-  new Student('Alex', 'Hryhoriev', 'male', '20', 'izaya256'),
-  new Student('Vladimir', 'Timofeev', 'male', '20', 'vovanium'),
-  new Student('Ira', 'someSurname', 'female', '20', 'princess_rina88'),
-  new Student('Svetlana', 'Ovcharenko', 'female', '20', 'ami-caty'),
-  new Student('Lena', 'Ryndina', 'female', '20', 'dn100980rev'),
-  new Student('Polina', 'Zhilyaeva', 'female', '20', 'polina_volna')
+  new Student('Alex', 'Hryhoriev', 'male', new Date(1996, 2, 14), 'izaya256'),
+  new Student('Vladimir', 'Timofeev', 'male', new Date(1988, 5, 6), 'vovanium'),
+  new Student('Ira', 'Ruban', 'female', new Date(1995, 1, 4), 'princess_rina88'),
+  new Student('Svetlana', 'Ovcharenko', 'female', new Date(1996, 0, 1), 'ami-caty'),
+  new Student('Lena', 'Ryndina', 'female', new Date(1987, 5, 17), 'dn100980rev'),
+  new Student('Polina', 'Zhilyaeva', 'female', new Date(1987, 8, 10), 'polina_volna')
 ]);
 
-var view = new StudentListView(students);
+var studentListView = new StudentListView(students);
 
 document.addEventListener("DOMContentLoaded", function () {
   var container = document.getElementById('students'),
       listDiv = container.appendChild( document.createElement('div') ),
       infoDiv = container.appendChild( document.createElement('div') );
-  view.showTable( listDiv, infoDiv );
+  studentListView.showStudentList( listDiv, infoDiv );
 }, false);
-
-function addElement (tag, html, parent) {
-  var elem = document.createElement(tag);
-  elem.innerHTML = html;
-  return parent.appendChild(elem);
-}

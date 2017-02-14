@@ -1,21 +1,15 @@
 function StudentInfoView (student) {
-  this.student = student;
+  var student = student;
+  
+  this.showStudentInfo = function (parentElem) {
+    var studentInfo = student.getFullForm(),
+        table = document.createElement('table');
+    
+    table.innerHTML = renderTemplate(studentInfoTemplate, studentInfo);
+    
+    table.classList.add('simple-little-table');
+    return parentElem.appendChild(table);
+  };
+  
   return this;
-}
-
-StudentInfoView.prototype.showInfo = function (parentElem) {
-  var studentInfo = this.student.getFullForm(),
-      table, tBody, tr, cell;
-  
-  table = document.createElement('table');
-  tBody = table.appendChild( document.createElement('tbody') );
-  
-  for (let name in studentInfo) {
-    tr = tBody.appendChild( document.createElement('tr') );
-    addElement('th', name, tr);
-    addElement('td', studentInfo[name], tr);
-  }
-  
-  table.classList.add('simple-little-table')
-  parentElem.appendChild(table);
 }
